@@ -25,5 +25,5 @@ app.use('/api/v1/models', modelsRouter);
 
 // Listen for requests
 ViteExpress.listen(app, 5050, () =>
-    console.log("Server is listening on port 3000...")
+    console.log("Server is listening on port 5050...")
 );
