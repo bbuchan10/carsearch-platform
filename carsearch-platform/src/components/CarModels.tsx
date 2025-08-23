@@ -33,7 +33,7 @@ export default function CarModels({ make }: CarModelsProps) {
 		loadModels();
 	}
 
-	if (!make) return <p>Select a make to view models.</p>;
+	// if (!make) return <p>Select a make to view models.</p>;
 
 	return (
 		<div>

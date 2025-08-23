@@ -1,21 +1,23 @@
-import Header from "./Header";
-import CarMakes from "./components/CarMakes";
-import CarModels from "./components/CarModels";
-import type { Make } from "./api";
-import { useState } from "react";
+import {
+	Route,
+	createBrowserRouter,
+	createRoutesFromElements,
+	RouterProvider,
+} from "react-router-dom";
+import Home from "./pages/Home";
+import Makes from "./pages/Makes";
+import RootLayout from "./layout/RootLayout";
 
 function App() {
-	const [selectedMake, setSelectedMake] = useState<Make | null>(null);
-
-	return (
-		<div>
-			<Header />
-			<div style={{ display: "flex", gap: "2rem" }}>
-				<CarMakes onSelectMake={setSelectedMake} />
-				<CarModels make={selectedMake} />
-			</div>
-		</div>
+	const router = createBrowserRouter(
+		createRoutesFromElements(
+			<Route path="/" element={<RootLayout />}>
+				<Route index element={<Home />} />
+				<Route path="makes" element={<Makes />} />
+			</Route>
+		)
 	);
+	return <RouterProvider router={router} />;
 }
 
 export default App;
